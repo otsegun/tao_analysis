@@ -1,0 +1,30 @@
+---
+title: "Tao Analysis Solutions"
+author: "Oluwasegun Ojo"
+date: "21 de febrero de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## My attempts at solving Tao Analysis I problems.
+
+## Chapter 2 
+
+### Prove that the sum of two natural numbers is again a natural number? (Pg 24)
+
+### Prove that $n++ = n+1$ (Ppg 26)
+
+### Exercise 2.2.1
+
+### Exercise 2.2.2.
+
+### Exercise 2.2.3.
+
+### Exercise 2.2.4.
+
+### Exercise 2.2.5.
+
+### Exercise 2.2.6.
