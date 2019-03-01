@@ -9,7 +9,7 @@
 <meta name="generator" content="pandoc" />
 
 
-<meta name="author" content="Oluwasegun Ojo" />
+<meta name="author" content="Segun" />
 
 
 <title>Tao Analysis Solutions</title>
@@ -185,41 +185,35 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Tao Analysis Solutions</h1>
-<h4 class="author"><em>Oluwasegun Ojo</em></h4>
+<h4 class="author"><em>Segun</em></h4>
 <h4 class="date"><em>21 de febrero de 2019</em></h4>
 
 </div>
 
 
-<div id="my-attempts-at-solving-tao-analysis-i-problems." class="section level2">
-<h2>My attempts at solving Tao Analysis I problems.</h2>
-</div>
-<div id="chapter-2" class="section level2">
-<h2>Chapter 2</h2>
-<div id="prove-that-the-sum-of-two-natural-numbers-is-again-a-natural-number-pg-24" class="section level3">
-<h3>Prove that the sum of two natural numbers is again a natural number? (Pg 24)</h3>
-</div>
-<div id="prove-that-n-n1-ppg-26" class="section level3">
-<h3>Prove that <span class="math inline">\(n++ = n+1\)</span> (Ppg 26)</h3>
-</div>
-<div id="exercise-2.2.1" class="section level3">
-<h3>Exercise 2.2.1</h3>
-</div>
-<div id="exercise-2.2.2." class="section level3">
-<h3>Exercise 2.2.2.</h3>
-</div>
-<div id="exercise-2.2.3." class="section level3">
-<h3>Exercise 2.2.3.</h3>
-</div>
-<div id="exercise-2.24" class="section level3">
-<h3>Exercise 2.24</h3>
+<p><strong>Pg 24</strong> Prove that the sum of two natural numbers is again a natural number?</p>
+<p><em>Solution</em>: Let <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> be natural numbers. Using induction on <span class="math inline">\(n\)</span> and keeping <span class="math inline">\(m\)</span> fixed,we have the base case to be <span class="math inline">\(0 + m := m\)</span> which is a natural number as desired (by definition of addition and <strong>Axiom 2.1</strong>).</p>
+<p>Now we assume inductively <span class="math inline">\(n+m\)</span> is a natural number. We have to show that <span class="math inline">\((n++)+m\)</span> is also a natural number. But <span class="math inline">\((n++) + m = (n+m)++\)</span> by definition of addition and <strong>Axiom 2.2</strong>. However, <span class="math inline">\(n+m\)</span> is a natural number according to the inductive hypothesis and therefore <span class="math inline">\((n+m)++\)</span> is also a natural number by <strong>Axiom 2.2</strong>. <span class="math inline">\(\square\)</span></p>
+<p><strong>Pg 26</strong> Prove that <span class="math inline">\(n++ = n+1\)</span></p>
+<p><em>Solution 1</em>: Let <span class="math inline">\(n\)</span> be a natural number, then <span class="math inline">\(n++ = (n++) + 0 = (n+0)++ = n + (0++) = n+1\)</span> according to <strong>Lemma 2.2.2</strong>, definition of addition, <strong>Lemma 2.2.3</strong> and definition of increment respectively. <span class="math inline">\(\square\)</span></p>
+<p><em>Solution 2</em>: Using induction on <span class="math inline">\(n\)</span>, we have to show that <span class="math inline">\(0++ = 0+1\)</span> for the base case. However, <span class="math inline">\(0++ = 1 = 0 + 1\)</span> by definitions of increment, and addition respectively and so the base case is done.</p>
+<p>Now suppose inductively that <span class="math inline">\(n++ = n+1\)</span>, we have to show that <span class="math inline">\((n++) ++ = (n++) +1\)</span>.</p>
+<p>From the RHS, <span class="math inline">\((n++)+1 = (n+1)++ = (n++)++\)</span> by definition of addition and the inductive hypothesis repectively. <span class="math inline">\(\square\)</span></p>
+<p><strong>Exercise 2.2.1.</strong> (Addition is associative). Prove that for any natural numbers <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>, we have <span class="math inline">\((a + b) + c = a + (b + c)\)</span>.</p>
+<p><em>Solution</em>: Using induction on <span class="math inline">\(a\)</span> and keeping <span class="math inline">\(a\)</span> and <span class="math inline">\(c\)</span> fixed. For the base case, we want to show that <span class="math inline">\((0+b) + c = 0+(b+c)\)</span>. However, <span class="math inline">\((0+b) + c = b+c = 0 + (b+c)\)</span> by the definition of addition.</p>
+<p>Now suppose inductively that <span class="math inline">\((a+b)+c = a+(b+c)\)</span>, we have to show that <span class="math inline">\(((a++)+b)+c = (a++) + (b+c)\)</span>.</p>
+<p>From the RHS, we have that <span class="math inline">\((a++) + (b+c) = (a+(b+c))++ = ((a+b)+c)++\)</span> by the definition of addition and the inductive hypothesis respectively. Furthermore, <span class="math inline">\(((a+b)+c)++ = (((a+b)++)+c) = ((a++)+b)+c\)</span> by definition of addition. <span class="math inline">\(\square\)</span></p>
+<p><strong>Exercise 2.2.2.</strong> Let a be a positive number. Then there exists exactly one natural number b such that b++ = a.</p>
+<strong>Exercise 2.2.3.</strong> Basic properties of order for natural numbers). Let a, b, c be natural numbers. Then <em>Solution:</em>
+
+<div id="exercise-2.2.4." class="section level3">
+<h3>Exercise 2.2.4.</h3>
 </div>
 <div id="exercise-2.2.5." class="section level3">
 <h3>Exercise 2.2.5.</h3>
 </div>
 <div id="exercise-2.2.6." class="section level3">
 <h3>Exercise 2.2.6.</h3>
-</div>
 </div>
 
 

@@ -1,29 +1,99 @@
 ---
 title: "Tao Analysis Solutions"
-author: "Oluwasegun Ojo"
+author: "Segun"
 date: "21 de febrero de 2019"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## My attempts at solving Tao Analysis I problems.
 
-## Chapter 2 
 
-### Prove that the sum of two natural numbers is again a natural number? (Pg 24)
+**Pg 24** Prove that the sum of two natural numbers is again a natural number?
 
-### Prove that $n++ = n+1$ (Ppg 26)
 
-### Exercise 2.2.1
+*Solution*: Let $n$ and $m$ be natural numbers. Using induction on $n$ and keeping $m$ fixed,we have the base case to be $0 + m := m$ which is a natural number as desired (by definition of addition and **Axiom 2.1**). 
 
-### Exercise 2.2.2.
+Now we assume inductively $n+m$ is a natural number. We have to show that $(n++)+m$ is also a natural number. But $(n++) + m = (n+m)++$ by definition of addition and **Axiom 2.2**. However, $n+m$ is a natural number according to the inductive hypothesis and therefore $(n+m)++$ is also a natural number by **Axiom 2.2**.
+$\square$
 
-### Exercise 2.2.3.
+**Pg 26** Prove that $n++ = n+1$ 
 
-### Exercise 2.2.4.
+*Solution 1*: Let $n$ be a natural number, then $n++ = (n++) + 0 = (n+0)++ = n + (0++) = n+1$ according to **Lemma 2.2.2**, definition of addition, **Lemma 2.2.3** and definition of increment respectively. $\square$
+
+*Solution 2*: Using induction on $n$, we have to show that $0++ = 0+1$ for the base case. However, $0++ = 1 = 0 + 1$ by definitions of increment, and addition respectively and so the base case is done. 
+
+Now suppose inductively that $n++ = n+1$, we have to show that $(n++) ++ = (n++) +1$.
+
+From the RHS, $(n++)+1 = (n+1)++ = (n++)++$ by definition of addition and the inductive hypothesis repectively. $\square$
+
+**Exercise 2.2.1.** (Addition is associative). Prove that for any natural numbers $a$, $b$, $c$, we have $(a + b) + c = a + (b + c)$.
+
+*Solution*: Using induction on $a$ and keeping $a$ and $c$ fixed. For the base case, we want to show that $(0+b) + c = 0+(b+c)$. However, $(0+b) + c  = b+c = 0 + (b+c)$ by the definition of addition.
+
+Now suppose inductively that $(a+b)+c = a+(b+c)$, we have to show that $((a++)+b)+c = (a++) + (b+c)$.
+
+From the RHS, we have that $(a++) + (b+c) = (a+(b+c))++ = ((a+b)+c)++$ by the definition of addition and the inductive hypothesis respectively. Furthermore, $((a+b)+c)++ = (((a+b)++)+c) = ((a++)+b)+c$ by definition of addition. $\square$
+
+**Exercise 2.2.2.** Let $a$ be a positive number. Then there exists exactly one natural number $b$ such that $b++ = a$.
+
+*Solution:* First we prove the existence of a natural number $b$ such that $b{++} = a$ for $a\in \mathbb{N}^+$ using induction on $a$. For the base case $a = 1$, we want to show that there exists a natural number $b$ such that $b{++} = 1$. Clearly, $0{++} = 1$ so $b = 0$.
+
+Now suppose inductively that for any positive number $a$, there exists a natural number $b$ such that $b{++} = a$. 
+
+We have to show that there exists a natural number $q$ such that $q++ = a++$. But $a++ = (b++)++$ by the inductive hypothesis, so that $q{++} = (b{++}){++}$ and by **Axiom 2.4**, $q = b{++}$. So that completes the induction and the proof existence.
+
+Now we have to prove the uniqueness of the natural number $b$ such that $b{++} = a$ for $a\in \mathbb{N}^+$. Suppose for the sake of contradiction that there exist $b$, $c$ $\in \mathbb{N}$ with $b\ne c$ such that $b{++} = a$ and $c{++} = a$. Then $b{++} = c{++}$ and by **Axiom 2.4** $b = c$ which is a contradiction. Consequently, there exists exactly one natural number $b$ such that $b{++} = a$  for $a\in \mathbb{N}^+$. $\square$
+
+**Exercise 2.2.3.** Basic properties of order for natural numbers). Let a, b, c be natural numbers. Then
+*Solution:*
+\begin{enumerate}
+\item (Order is reflexive) $a \ge a$.
+
+$a = a + 0$ by \textbf{Lemma 2.2.3} , therefore, $a\ge a$ by definition. $\square$
+
+\item (Order is transitive) If $a \ge b$ and $b \ge c$, then $a \ge c$.
+
+By definition, $a\ge b$ implies that $a = b+d$ and $b \ge c$ implies $b = c + e$, for some $d$, $e$ $\in \mathbb{N}$. Therefore, $a = b + d = (c+e)+d = c +(e+d) \ge c$ by ordering of natural numbers and associativity of addition. $\square$.   
+
+\item (Order is anti-symmetric) If $a \ge b$ and $b \ge a$, then $a = b$.
+
+
+Since $a \ge b$ and $b \ge a$, we have that $a = b + c$ and $b = a + d$ for some $c$, $d$ $\in \mathbb{N}$. Thus $a = a + c + d$ which implies that $c+d = 0$ by \textbf{Lemma 2.2.2} and that further implies $c = 0$ and $d = 0$ by \textbf{Corollary 2.2.9}. Consequently, $a = b$. $\square$
+
+
+\item (Addition preserves order) $a \ge b$ if and only if $a + c \ge b + c$.
+
+Because $a\ge b$, $a = b+d$ for some $d \in \mathbb{N}$. Hence $a + c = (b+d) + c = (b+c) + d \ge b+c$ by the cancellation law, associativity of addition and ordering of natural numbers respectively.
+
+Likewise, $a+c \ge b+c$ implies $a+c = (b+c) + e$, for some $e \in \mathbb{N}$. Consequently, $a+c = (b+e) + c$ by associativity of addition. By cancellation law, $a = b + e$ so $a\ge b$. $\square$ 
+
+\item $a < b$ if and only if $a{++} \le b$
+
+\textit{Proof.} Since $a<b$,  then $b = a+n$, for some $n \in \mathbb{N}$ and $b \ne a$. Consequently, $n \ne 0$ by \textbf{Lemma 2.2.2}. Then there exists a number say $m \in \mathbb{N}$ such that $m{++} = n$ by \textbf{Lemma 2.2.10}. So $b = a+n = a + m{++} = (a{++}) + m$ by \textbf{Lemma 2.2.3}. So $a{++} \le b$.
+
+Likewise $a{++} \le b$ implies $b = (a{++}) + n$ for some $n \in \mathbb{N}$. Consequently, $b = a + (n{++})$ by \textbf{Lemma 2.2.3} and by \textbf{Definition 2.2.1} (Addition of natural numbers). But we know that $n{++} \ne 0$ by \textbf{Axiom 2.3} and by implication $b \ne a$. So $a<b$. $\square$
+
+\item $a < b$ if and only if $b = a + d$ for some positive number $d$.
+
+\textit{Proof}. If $a<b$, then $b = a+d$ for some $d\in \mathbb{N}$ and $b\ne a$ by definition. We need to show that $d\ne 0$. Now suppose for the sake of contradiction that $d = 0$. Then $b = a+d$ implies $a = b$ which is a contradition so $d\ne0$. 
+
+Likewise, $b = a+d$, $d \ne 0$ implies $a\le b$ by \textbf{Definition 2.2.11} (Ordering of the natural numbers). We need to show that $b \ne a$. Suppose for the sake of contradiction that $b = a$, then $b = a+d$ implies  $d = 0$ by \textbf{Lemma 2.2.2} which is a contradiction. Hence $b \ne a$ and $a\le b$ so $a<b$. $\square$
+
+\end{enumerate}
+**Exercise 2.2.4** Justify the three statements marked (why?) in the proof of **Proposition 2.2.13**.
+
+\begin{enumerate}
+\item $0\le b$ for all $b\in \mathbb{N}$.
+
+\textit{Proof}. Since $b \in \mathbb{N}$, then $b = 0 + b$ by **Definition 2.2.1** (Addition of natural numbers) so $0\le b$ by **Definition 2.2.11** (Ordering of the natural numbers). 
+
+\item 
+\end{enumerate}
 
 ### Exercise 2.2.5.
 
