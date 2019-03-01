@@ -85,16 +85,27 @@ Likewise $a{++} \le b$ implies $b = (a{++}) + n$ for some $n \in \mathbb{N}$. Co
 Likewise, $b = a+d$, $d \ne 0$ implies $a\le b$ by \textbf{Definition 2.2.11} (Ordering of the natural numbers). We need to show that $b \ne a$. Suppose for the sake of contradiction that $b = a$, then $b = a+d$ implies  $d = 0$ by \textbf{Lemma 2.2.2} which is a contradiction. Hence $b \ne a$ and $a\le b$ so $a<b$. $\square$
 
 \end{enumerate}
-**Exercise 2.2.4** Justify the three statements marked (why?) in the proof of **Proposition 2.2.13**.
+
+**Exercise 2.2.4.** Justify the three statements marked (why?) in the proof of **Proposition 2.2.13**.
 
 \begin{enumerate}
 \item $0\le b$ for all $b\in \mathbb{N}$.
 
-\textit{Proof}. Since $b \in \mathbb{N}$, then $b = 0 + b$ by **Definition 2.2.1** (Addition of natural numbers) so $0\le b$ by **Definition 2.2.11** (Ordering of the natural numbers). 
+\textit{Proof}. Since $b \in \mathbb{N}$, then $b = 0 + b$ by \textbf{Definition 2.2.1} (Addition of natural numbers) so $0\le b$ by \textbf{Definition 2.2.11} (Ordering of the natural numbers). 
 
-\item 
+\item  If $a>b$, then $a{++} > b$
+
+\textit{Proof}. Because $a{++}>a$ and $a>b$. Then by \textbf{Proposition 2.2.12} (Transitivity of order), $a{++} > b$. 
+
+\item If $a = b$, the $a{++} =  b+d$
+
+\textit{Proof}. Because $a{++}>a$ implies $a{++}>b$  since $a=b$. 
+
 \end{enumerate}
 
-### Exercise 2.2.5.
+**Exercise 2.2.5.** Prove **Proposition 2.2.14**. (Strong principle of induction). Let $m_0$ be a natural number, and Let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m \ge m_0$, we have the following implication: if P (m0) is true for all natural numbers $m_0 \le m_0 < m$ , then $P(m)$ is also true. (In particular,
+this means that $P(m_0)$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $P(m)$ is true for all natural numbers $m \ge m0$.
+
+*Solution:* Let $Q(n)$ be the property that $P(m)$ is true for all $m_o \le m < n$. Then if $n\le m_0$, then $Q(n)$ is vacuously true. If $n = m_0{++}$, then $Q(m_0{++})$ is true because $P(m)$ is true for all natural numbers $m_0 \le m < m_0{++}$ and by definition of $P$, $P(m_0{++})$ is also true. Likewise, if $n = (m_0{++})++$, then $Q((m_0{++})++)$ is true becuase  $P(m)$ is true for all $m_0 \le m < (m_0{++})++$ (since $P(m_0)$ and $P(m_0{++})$ are true) and by definition of $P$, $P((m_0{++})++)$ is also true.    
 
 ### Exercise 2.2.6.
