@@ -103,9 +103,29 @@ Likewise, $b = a+d$, $d \ne 0$ implies $a\le b$ by \textbf{Definition 2.2.11} (O
 
 \end{enumerate}
 
-**Exercise 2.2.5.** Prove **Proposition 2.2.14**. (Strong principle of induction). Let $m_0$ be a natural number, and Let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m \ge m_0$, we have the following implication: if P (m0) is true for all natural numbers $m_0 \le m_0 < m$ , then $P(m)$ is also true. (In particular,
-this means that $P(m_0)$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $P(m)$ is true for all natural numbers $m \ge m0$.
+**Exercise 2.2.5.** Prove **Proposition 2.2.14**. (Strong principle of induction). Let $m_0$ be a natural number, and let $P(m)$ be a property pertaining to an arbitrary natural number $m$. Suppose that for each $m \ge m_0$, we have the following implication: if $P(m')$ is true for all natural numbers $m_0 \le m' < m$ , then $P(m)$ is also true. (In particular, this means that $P(m_0)$ is true, since in this case the hypothesis is vacuous.) Then we can conclude that $P(m)$ is true for all natural numbers $m \ge m0$.
 
-*Solution:* Let $Q(n)$ be the property that $P(m)$ is true for all $m_o \le m < n$. Then if $n\le m_0$, then $Q(n)$ is vacuously true. If $n = m_0{++}$, then $Q(m_0{++})$ is true because $P(m)$ is true for all natural numbers $m_0 \le m < m_0{++}$ and by definition of $P$, $P(m_0{++})$ is also true. Likewise, if $n = (m_0{++})++$, then $Q((m_0{++})++)$ is true becuase  $P(m)$ is true for all $m_0 \le m < (m_0{++})++$ (since $P(m_0)$ and $P(m_0{++})$ are true) and by definition of $P$, $P((m_0{++})++)$ is also true.    
+*Proof 1:* (Informal) Let $Q(n)$ be the property that $P(m)$ is true for all $m_o \le m < n$. Then if $n\le m_0$, then $Q(n)$ is vacuously true. If $n = m_0{++}$, then $Q(m_0{++})$ is true because $P(m)$ is true for all natural numbers $m_0 \le m < m_0{++}$ (since $P(m_0)$ is vacuously true) and by definition of $P$, $P(m_0{++})$ is also true. Likewise, if $n = (m_0{++})++$, then $Q((m_0{++})++)$ is true becuase  $P(m)$ is true for all $m_0 \le m < (m_0{++})++$ (since $P(m_0)$ and $P(m_0{++})$ are true) and by definition of $P$, $P((m_0{++})++)$ is also true. And so it goes on and on.    
 
-### Exercise 2.2.6.
+
+*Proof:* Let $n\in \mathbb{N}$ and let $Q(n)$ be the property that $P(m)$ is true for all $m_0 \le m < n$ for $n\ge m_0$. Using induction on $n$, for the base case $n = 0$, we want to show that $Q(0)$ is true. However, we know that $0\le m_0\ \forall\ m_0 \in \mathbb{N}$. Thus, either $0 = m_0$ or $0<m_0$ and so we split into cases. If $n = 0 < m_0$, the statement $P(m)\ \forall\ m_0\le m < n$ is vacuously true (since the hypothesis applies for $n \ge m_0$) and thus $Q(0)$ is true in this case.  For the second case, if $n = 0 =m_0$, then the statement $P(m)\ \forall\ m_0\le m < n$ is also vacuously true since there is no $m' \in \mathbb{N}$ such that $0 \le m' <0$. Hence, $Q(0)$ is true for this case and that completes the base case of the induction. 
+
+Now suppose inductively that for some $n\ge m_0$, $Q(n)$ is true, i.e $P(m)\ \forall\ m_0\le m < n$ is true. We need to show that $Q(n{++})$ is true. 
+
+By the definition of $P$ in the hypothesis, $P(n)$ is also true (because $Q(n)$ is true). Since $n<n++$, then $P(m)\ \forall\ m_0\le m \le n < n++$ is true so $P(m)\ \forall\ m_0\le m < n++$ is true which in turn implies that $Q(n{++})$ is true. Which closes the induction and hence we can conclude that $Q(n)\ \forall n$ is true. 
+
+However, $Q(n)$ true implies $P(m)\ \forall\ m_0\le m<n$ is true for all $n\ge m_0$ and by the definition of $P$, $P(n)$ is true  for all $n\ge m_0$ which concludes the proof. $\square$   
+
+
+
+**Exercise 2.2.6.** Let $n$ be a natural number, and let $P(m)$ be a property pertaining to the natural numbers such that whenever $P(m{++})$ is true, then $P(m)$
+is true. Suppose that $P(n)$ is also true. Prove that $P(m)$ is true for all natural
+numbers $m \le n$; this is known as the principle of *backwards induction*. (Hint:
+apply induction to the variable $n$.)
+
+
+*Proof:* Let $n \in \mathbb{N}$. Using induction on $n$, for the base case $n = 0$, we need to show that $P(m)$ is true $\forall\ m\le 0$. But only $0\le 0$ so we just need to show that $P(0)$ is true. Since $P(n)$ is true from the hypothesis, $P(0)$ is true and that completes the base case. 
+
+Suppose inductively that the principle if true for $n$, i.e $P$ is such that $P(n)$ is true, and whenever $P(m{++})$ is true, $P(m)$ is true $\forall m\le n$. We have to show the principle is true for $n{++}$ i.e we need to show that $P(m)$ is true $\forall\ m\le n++$ given that $P(n{++})$ is true and given that whenever $P(m{++})$ is true, $P(m)$ is true.
+
+Since $P(n{++})$ is true, then $P(n)$ is also true. So we have to show that $P(m)$ is true $m<n$. But from the inductive hypothesis, $P(m)$ is true $\forall$ $m\le n$ and that completes the inductive hypothesis. $\square$
