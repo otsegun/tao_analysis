@@ -129,3 +129,13 @@ apply induction to the variable $n$.)
 Suppose inductively that the principle if true for $n$, i.e $P$ is such that $P(n)$ is true, and whenever $P(m{++})$ is true, $P(m)$ is true $\forall m\le n$. We have to show the principle is true for $n{++}$ i.e we need to show that $P(m)$ is true $\forall\ m\le n++$ given that $P(n{++})$ is true and given that whenever $P(m{++})$ is true, $P(m)$ is true.
 
 Since $P(n{++})$ is true, then $P(n)$ is also true. So we have to show that $P(m)$ is true $m<n$. But from the inductive hypothesis, $P(m)$ is true $\forall$ $m\le n$ and that completes the inductive hypothesis. $\square$
+
+
+**Exercise 2.3.1.** Prove Lemma 2.3.2. (Multiplication is commutative). Let $n$, $m$ be natural numbers. Then $n \times m$ = $m \times n$. 
+
+**Exercise 2.3.2.** Prove Lemma 2.3.3. (Positive natural numbers have no zero divisors). Let $n$, $m$ be natural numbers. Then $n \times m = 0$ if and only if at least one of $n$, $m$ is equal to zero. In particular, if $n$ and $m$ are both positive, then $nm$ is also positive.
+
+**Exercise 2.3.3.** Prove Proposition 2.3.5. (Multiplication is associative). For any natural numbers $a$, $b$, $c$, we have $(a \times b) \times c = a \times (b \times c)$.
+
+**Exercise 2.3.4.** Prove the identity $(a + b)^2 = a^2 + 2ab + b^2$ for all natural numbers $a$, $b$.
+**Exercise 2.3.5.** Prove Proposition 2.3.9. (Euclidean algorithm). Let $n$ be a natural number, and let $q$ be a positive number. Then there exist natural numbers $m$, $r$ such that $0 \le r < q$ and $n = mq + r$. (*Hint*: fix $q$ and induct on $n$.)
