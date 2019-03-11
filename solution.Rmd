@@ -3,8 +3,8 @@ title: "Tao Analysis Solutions"
 author: "Segun"
 date: "21 de febrero de 2019"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -133,6 +133,8 @@ Since $P(n{++})$ is true, then $P(n)$ is also true. So we have to show that $P(m
 
 **Exercise 2.3.1.** Prove Lemma 2.3.2. (Multiplication is commutative). Let $n$, $m$ be natural numbers. Then $n \times m$ = $m \times n$. 
 
+
+
 **Exercise 2.3.2.** Prove Lemma 2.3.3. (Positive natural numbers have no zero divisors). Let $n$, $m$ be natural numbers. Then $n \times m = 0$ if and only if at least one of $n$, $m$ is equal to zero. In particular, if $n$ and $m$ are both positive, then $nm$ is also positive.
 
 **Exercise 2.3.3.** Prove Proposition 2.3.5. (Multiplication is associative). For any natural numbers $a$, $b$, $c$, we have $(a \times b) \times c = a \times (b \times c)$.
@@ -140,3 +142,11 @@ Since $P(n{++})$ is true, then $P(n)$ is also true. So we have to show that $P(m
 **Exercise 2.3.4.** Prove the identity $(a + b)^2 = a^2 + 2ab + b^2$ for all natural numbers $a$, $b$.
 
 **Exercise 2.3.5.** Prove Proposition 2.3.9. (Euclidean algorithm). Let $n$ be a natural number, and let $q$ be a positive number. Then there exist natural numbers $m$, $r$ such that $0 \le r < q$ and $n = mq + r$. (*Hint*: fix $q$ and induct on $n$.)
+
+*Proof:* Let $n \in \mathbb{N}$. Inducting on $n$ ad fixing $q$, for the base case $n = 0$, we need to show that for some $q\in\mathbb{N+}$ there exist $m$, $r$ $\in \mathbb{N}$ such that $0 = mq+r$. But $0 = 0+0$ and we also know that $0\times q = 0 \forall q\ \in\ \mathbb{N+}$ so $0 = 0\times q + 0$. Taking $m = 0$ and $r = 0$ completes the proof of the base case. 
+
+
+Suppose inductively that the algorithm is true for $n$, i.e for some $q \in \mathbb{N+}$ there exist  $m$, $r$ $\in \mathbb{N}$ such that $n = mq+r$ with $0 \le r < q$. We have to show the principle is true for $n{++}$ i.e we need to show that for some $k \in \mathbb{N+}$, there exist $a$, $b$ $\in \mathbb{N}$ such that $n{++} = ak+b$ with $0\le b < k$. But $n{++} = n + 1 = (mq + r) + 1 = mq + r+1 = mq + r{++}$. Since $r<q$, then  $r++ \le q$ which means that either $r{++}<q$ or $r{++} = q$. If $r{++} < q$, then taking $a = m$, $b = r{++}$ and $k = q$ completes the case as desired. On the otherhand, if $r{++} = q$, then 
+$$n{++} = mq + q = (m{++})q = (m{++})q + 0$$.
+
+Taking $a = m{++}$, $b = 0$, $q = k$ completes the proof. $\square$
