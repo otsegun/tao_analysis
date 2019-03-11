@@ -138,4 +138,5 @@ Since $P(n{++})$ is true, then $P(n)$ is also true. So we have to show that $P(m
 **Exercise 2.3.3.** Prove Proposition 2.3.5. (Multiplication is associative). For any natural numbers $a$, $b$, $c$, we have $(a \times b) \times c = a \times (b \times c)$.
 
 **Exercise 2.3.4.** Prove the identity $(a + b)^2 = a^2 + 2ab + b^2$ for all natural numbers $a$, $b$.
+
 **Exercise 2.3.5.** Prove Proposition 2.3.9. (Euclidean algorithm). Let $n$ be a natural number, and let $q$ be a positive number. Then there exist natural numbers $m$, $r$ such that $0 \le r < q$ and $n = mq + r$. (*Hint*: fix $q$ and induct on $n$.)
