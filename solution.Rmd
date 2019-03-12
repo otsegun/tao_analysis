@@ -3,8 +3,8 @@ title: "Tao Analysis Solutions"
 author: "Segun"
 date: "21 de febrero de 2019"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -133,20 +133,80 @@ Since $P(n{++})$ is true, then $P(n)$ is also true. So we have to show that $P(m
 
 **Exercise 2.3.1.** Prove Lemma 2.3.2. (Multiplication is commutative). Let $n$, $m$ be natural numbers. Then $n \times m$ = $m \times n$. 
 
+*Proof:* First we'll present some lemmas
 
+*Lemma1:* $m\times 0 = 0$ for any natural number $m$.
+
+*Proof:* Using induction on $m$, we have the base case to be $0\times 0 = 0$ by definition of multiplication. Suppose inductively that $m \times 0 = 0$ is true for $m\in \mathbb{N}$, we want to show that it is also true that $m{++}\times 0 = 0$. But, $m{++}\times 0 = (m \times 0) + 0 = 0+0 = 0$. 
+
+*Lemma2:* $n \times m{++} = (n \times m)+n$ for natural numbers $n$ and $m$.
+
+*Proof:* Inducting on $n$ and fixing $m$, we have the base case to be $0 \times m{++} = 0 = 0+0 = (0\times m) + 0$ as desired. Now suppose inductively that $n \times m{++} = (n \times m)+n$ is true, we have to show that $n{++} \times m{++} = (n{++} \times m)+n{++}$. From the LHS we have, 
+
+\begin{align*}
+n{++} \times m{++} &= (n \times m{++})+m{++} && \text{by definition of multiplication} \\
+&= ((n \times m)+n)+m{++} && \text{by the inductive hypothesis} \\
+&= (((n \times m)+n){++}) + m && \textbf{Lemma 2.2.3} \\
+&= (n \times m)+ n{++} + m && \textbf{Lemma 2.2.3} \\
+&= (n \times m) + m + n{++} && \text{by associative law} \\
+&= (n{++} \times m) + n{++} && \text{by definition of multiplication}
+\end{align*}
+
+as desired.
+
+Now we'll show that for $n$, $m$ natural numbers, $n \times m = m \times n$.  Inducting on $n$ and keeping $m$ fixed, the base case is to show that $0 \times m= m \times 0$. However,  $0 \times m = 0$ by definition and $m \times 0 = 0$ from *Lemma1* above which completes the base case as desired. Now suppose inductively that $n\times m = m\times n$, we have to show that $n{++}\times m = m\times n{++}$. But $n{++}\times m =  (n\times m)+ m = (m\times n)+ m$ by defintion of multiplication and the inductive hypothesis. However, $(m\times n)+ m = m\times n{++}$ according to *Lemma2* above. $\square$    
 
 **Exercise 2.3.2.** Prove Lemma 2.3.3. (Positive natural numbers have no zero divisors). Let $n$, $m$ be natural numbers. Then $n \times m = 0$ if and only if at least one of $n$, $m$ is equal to zero. In particular, if $n$ and $m$ are both positive, then $nm$ is also positive.
 
+
+*Proof:*
+We'll prove the second statement first as a lemma.
+
+*Lemma1:* If $n$ and $m$ are both positive, then $nm$ is also positive. 
+
+*Proof:* Let $n,\ m$ be positive numbers. Using strong induction on $n$ while keeping $m$ fixed. For the base case $n = 1>0$, we want to show that $1\times m$ is positive. But $1\times m = 0{++}\times m = (0\times m) +m = m$ which is postive. Suppose that $nm$ is positive for all $x$ such that $1\le x < n{++}$, we want to show it is true for $n{++}$. But we know that $n{++}\times m = (n\times m) + m$ which is positive since $n\times m$ is positive (from the inductive hypothesis) and since addition of two positive numbers is also a positive number. Hence, $nm$ is positive for all $n,\ m \ge 1$   
+
+
+Now we'll show that for $n$, $m$ natural numbers, $n \times m = 0$ if and only if at least one of $n$, $m$ is equal to zero. First we'll show that $n\times m = 0$ implies that at least one of $n,\ m$ is zero. Suppose for the sake of contradiction that there exists $n,\ m \ne0$ such that $n\times m = 0$, then according to *Lemma1*, there is a contradiction so at least one of $n, \ m$ is zero. 
+
+Next we'll show that if at least one of $n,\ m$ is zero, then $n\times m= 0$. Either one of $n,\ m$ is zero or both of $n,\ m$ are zero so we split into cases. If both $n,\ m$ are zero, then $n\times m = 0\times 0= 0$ as desired. If one of $n,\ m$ is zero, either $n = 0$ and $m \ne 0$ or $n\ne 0$ and $m = 0$ so we split into cases. If $n = 0$ and $m \ne 0$, then $n\times m = 0\times m = 0$ by definiton. Likewise, if  $n\ne 0$ and $m = 0$, then $n\times m = n \times 0 =0$ by *Lemma1* of **Exercise 2.3.1.**. $\square$   
+
+
+
 **Exercise 2.3.3.** Prove Proposition 2.3.5. (Multiplication is associative). For any natural numbers $a$, $b$, $c$, we have $(a \times b) \times c = a \times (b \times c)$.
 
+*Proof*: Let$a$, $b$, $c$ be natural numbers. Inducting on $c$ while keeping others fixed. We have to show for the base case that $(a\times b)\times 0 = a\times (b\times0)$. Both the RHS and LHS equal to zero as desired. Supose inductively that $(a\times b)\times c = a\times (b\times c)$, we have to show that $(a\times b)\times c{++} = a\times (b\times c{++})$. But 
+\begin{align*}
+(a\times b)\times c{++} &= \left[(a\times b)\times c\right] + (a\times b) && \text{by definition of $\times$} \\
+&= \left[a\times (b\times c)\right] + (a\times b) && \text{by the inductive hypothesis} \\
+&= a(bc) + ab  &&  \\
+&= a[bc+b]  && \text{by distributive law} \\
+&= a\times(b\times c{++})&& \text{by definition} 
+\end{align*}
+
+as desired and so we close the induction. $\square$   
 **Exercise 2.3.4.** Prove the identity $(a + b)^2 = a^2 + 2ab + b^2$ for all natural numbers $a$, $b$.
+
+*Proof:* We have that 
+
+\begin{align*}
+(a+b)^2 &= (a+b)(a+b) && \text{by definition of exponentiation} \\
+&= a(a+b) + b(a+b) && \text{by the distributive law} \\
+&= aa + ab + ba + bb && \text{by the distributive law} \\
+&= a^2 + ab + ab + b^2 && \text{by definition of exponentiation, and commutativity of $\times$} \\
+&= a^2 + a(b + b) + b^2 && \text{by distributive law} \\
+&= a^2 + a((1\times b) + b) + b^2 && \text{by definition of multiplication} \\
+&= a^2 + a(1{++}\times b) + b^2 && \text{by definition of multiplication} \\
+&= a^2 + a(2b) + b^2 && \text{by definition of increment} \\
+&= a^2 + 2ab + b^2 && \hfill \square
+\end{align*}
 
 **Exercise 2.3.5.** Prove Proposition 2.3.9. (Euclidean algorithm). Let $n$ be a natural number, and let $q$ be a positive number. Then there exist natural numbers $m$, $r$ such that $0 \le r < q$ and $n = mq + r$. (*Hint*: fix $q$ and induct on $n$.)
 
-*Proof:* Let $n \in \mathbb{N}$. Inducting on $n$ ad fixing $q$, for the base case $n = 0$, we need to show that for some $q\in\mathbb{N+}$ there exist $m$, $r$ $\in \mathbb{N}$ such that $0 = mq+r$. But $0 = 0+0$ and we also know that $0\times q = 0 \forall q\ \in\ \mathbb{N+}$ so $0 = 0\times q + 0$. Taking $m = 0$ and $r = 0$ completes the proof of the base case. 
+*Proof:* Let $n \in \mathbb{N}$. Inducting on $n$ and fixing $q$, for the base case $n = 0$, we need to show that for some $q\in\mathbb{N+}$ there exist $m$, $r$ $\in \mathbb{N}$ such that $0 = mq+r$. But $0 = 0+0$ and we also know that $0\times q = 0\  \forall q\ \in\ \mathbb{N+}$ so $0 = 0\times q + 0$. Taking $m = 0$ and $r = 0$ completes the proof of the base case. 
 
 
 Suppose inductively that the algorithm is true for $n$, i.e for some $q \in \mathbb{N+}$ there exist  $m$, $r$ $\in \mathbb{N}$ such that $n = mq+r$ with $0 \le r < q$. We have to show the principle is true for $n{++}$ i.e we need to show that for some $k \in \mathbb{N+}$, there exist $a$, $b$ $\in \mathbb{N}$ such that $n{++} = ak+b$ with $0\le b < k$. But $n{++} = n + 1 = (mq + r) + 1 = mq + r+1 = mq + r{++}$. Since $r<q$, then  $r++ \le q$ which means that either $r{++}<q$ or $r{++} = q$. If $r{++} < q$, then taking $a = m$, $b = r{++}$ and $k = q$ completes the case as desired. On the otherhand, if $r{++} = q$, then 
-$$n{++} = mq + q = (m{++})q = (m{++})q + 0$$.
+$$n{++} = mq + q = (m{++})q = (m{++})q + 0.$$
 
 Taking $a = m{++}$, $b = 0$, $q = k$ completes the proof. $\square$
