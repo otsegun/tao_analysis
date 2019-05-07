@@ -210,3 +210,99 @@ Suppose inductively that the algorithm is true for $n$, i.e for some $q \in \mat
 $$n{++} = mq + q = (m{++})q = (m{++})q + 0.$$
 
 Taking $a = m{++}$, $b = 0$, $q = k$ completes the proof. $\square$
+
+# Chapter 3
+**Exercise 3.1.1.** Show that the definition of equality in Definition 3.1.4 is reflexive, symmetric, and transitive.
+
+**Reflexive:** We need to show that for an arbitrary set $A$, $A = A$.
+
+*Proof:* Let $A$ be an arbitrary set and let $x$ be an arbitrary object in $A$, i.e $x\in A$. Then it is trivially true that $A = A$ because any arbitrary $x$ in $A$ is an element of $A$ so by **Definition 3.1.4**(Equality of Sets), $A = A$ and consequently equality of sets is reflexive. 
+
+**Symmetric:** Given two sets $A$ and $B$. If $A = B$, $B = A$.
+
+*Proof:* Let $A$ and $B$ be arbitrary sets such that $A = B$. Then all the elements of $A$ are in $B$ and all the elements of $B$ are in $B$. So $B = A$ for the same reasons by **Definition 3.1.4**(Equality of Sets). Thus, equality of sets is symmetric.
+
+**Transitive:** Given 3 sets $A$, $B$ and $C$. If $A = B$ and $B = C$, then $A = C$.
+
+*Proof:* Let $A$, $B$  and $C$ be arbitrary sets such that $A = B$ and $B = C$. Let $x$ be an arbitrary object in $A$, then $x\in B$ and since $B=C$, $x\in C$. Likewise, let $y\in C$, then  $y\in B$ and since $A = B$, $y\in A$. So all the elements of A are in $C$ and vice versa so $A = C$. Thus, equality of sets is transitive.
+
+**Exercise 3.1.2.** Using only Definition 3.1.4, Axiom 3.1, Axiom 3.2, and Axiom 3.3, prove that the sets  $\{\emptyset\}$, $\{\{\emptyset\}\}$ and $\{\emptyset, \{\emptyset\} \}$ are all distinct (i.e., no two of them are equal to each other). 
+
+*Proof:* Considering $\emptyset$ and $\{\emptyset\}$. By Axiom 3.2, $x\notin \emptyset$ for all $x$. However, $\emptyset \in \{\emptyset\}$ and since $\emptyset \notin \emptyset$, $\emptyset \neq \{\emptyset\}$. Furthermore, $\emptyset \neq \{\{\emptyset\}\}$ becuase $\{\emptyset\} \in \{\{\emptyset\}\}$ but $\{\emptyset\}\notin \emptyset$. Likewise, $\{\emptyset\} \neq \{\{\emptyset\}\}$ because $\{\emptyset\} \in \{\{\emptyset\}\}$ but $\{\emptyset\} \notin \{\emptyset\}$. Also $\{\{\emptyset\}\} \neq \{\emptyset, \{\emptyset\}\}$ because $\emptyset\notin \{\{\emptyset\}\}$ but $\emptyset\in \{\emptyset, \{\emptyset\}\}$
+
+**Exercise 3.1.3** Prove the remaining claims in Lemma 3.1.13. 
+
+*Claim:* If $a$ and $b$ are objects, then $\{a, b\}$ = $\{a\} \cup \{b\}$.
+
+*Proof*: Let $x\in\{a,b\}$, then by Axiom 3.3, $x = a$ or $x = b$. If $x = a$, then $x\in \{a\} \cup \{b\}$ (since $x\in\{a\}$). Likewise, if $x = b$, then  $x\in \{a\} \cup \{b\}$. So therefore, $x\in\{a,b\}$ implies $x\in \{a\} \cup \{b\}$. 
+
+On the contrary, let $y\in \{a\} \cup \{b\}$, then by Axiom 3.4, $y\in\{a\}$ or $y\in\{b\}$ so we split into cases. If $y\in\{a\}$, then by Axiom 3.3, $y = a$ and since $y = a\in\{a,b\}$, $y\in\{a,b\}$. Also, if $y\in\{b\}$, then $y\in\{a,b\}$ following the same line of argument. So in both cases, if $y\in \{a\} \cup \{b\}$, then $y\in\{a,b\}$.
+
+Consequently, $\{a, b\}$ = $\{a\} \cup \{b\}$. 
+
+*Claim:* $A\cup B = B\cup A$.
+
+*Proof: * Let $x$ be an object such that $x\in a\cup B$. Then by Axiom 3.4, $x\in A$ or $x\in B$. If $x\in A$, then $x\in B\cup A$ ($B\cup A \iff x\in B \text{ or } x\in A$) and if  If $x\in B$, then $x\in B\cup A$. Consequently, if $x\in A\cup B$, then $x\in B\cup A$. Following the ssame argument, if $y\in B\cup A$, then $y\in A\cup B$.
+
+Since all the objects of $A\cup B$ is also in $B\cup A$ and vice versa, then $A\cup B = B\cup A$.
+
+**Exercise 3.1.4** Prove the remaining claims in Proposition 3.1.18.
+
+*Claim:* Let A, B be sets. If $A\subseteq B$ and $B \subseteq A$, then $A = B$.
+
+*Proof:* Let A and B be sets such that $A\subseteq B$ and $B \subseteq A$. Since $A\subseteq B$, if $x\in A$ then $x\in B$ by Definition Definition 3.1.15 (Subsets). Likewise, if $y\in B$, then $y\in A$ (because $B \subseteq A$). Since all the element of $A$ are in $B$ and all the elements of $B$ are in $A$, then $A = B$.
+
+
+*Claim:* If $A \subsetneq  B$ and $B \subsetneq C$ then $A \subsetneq C$. 
+
+*Proof:* Let $A$, $B$, and $C$ be sets such that $A \subsetneq  B$ and $B \subsetneq C$. By definition 3.1.15, we have to show that $A \subseteq C$ and $A\neq C$. Let $x$ be any arbitrary object in $A$. Then $x\in B$ and $x\in C$ (since $A \subsetneq  B$ and $B \subsetneq C$). Consequently, $A \subseteq C$. Now we have to show that $A \neq C$. Since $A\subsetneq B$ ($A \subseteq B$ and $A \ne B$), there exist at lease one object $y\in B$ such that, $y\notin A$. However, $y\in B$ implies $y\in C$ (since $B\subsetneq C$). Since $y\in C$ and $y\notin A$, $A \ne C$ and that completes the proof. 
+
+
+**Exercise 3.1.5** Let A, B be sets. Show that the three statements $A \subseteq B$, $A \cup B = B$, $A \cap B = A$ are logically equivalent (any one of them implies the other two).
+
+*Claim 1:* If $A\subseteq B$, then $A\cup B = B$. 
+
+*Proof:* Let A and B be arbitrary sets such that $A\subseteq B$ and let $x\in A\cup B$, then either $x\in A$ or $x\in B$ so we split into cases. If $x\in B$, then we're done as required. On the contrary. if $x\in A$, then $x\in B$ also (since $A \subseteq B$). So in both cases, if $x\in A\cup B$, then $x\in B$.
+
+Now let $y\in B$, then by Axiom 3.4 (Pairwise union), $y\in A\cup B$. Since all the elements of $A\cup B$ are in $B$ and vice versa whenever $A\subseteq B$, then $A\cup B = B$ whenever $A\subseteq B$.
+
+*Claim 2:* If $A\subseteq B$, then $A\cap B = A$. 
+
+*Proof:* Let A and B be arbitrary sets such that $A\subseteq B$ and let $x\in A\cap B$, then by Definition 3.1.23 (Intersections) $x\in A$. Now let $y\in A$, then  $y\in B$ also (since $A\subseteq B$) so $y\in A\cap B$. Since all the elements of $A\cap B$ are in $A$ and vice versa whenever $A\subseteq B$, then $A\cap B = A$ whenever $A\subseteq B$.
+
+*Claim 3:* If $A\cup B = B$, then $A\subseteq B$
+
+*Claim 4:* If $A\cup B = B$, then $A\cap B = A$
+
+*Claim 5:* If $A\cap B = A$, then $A\subseteq B$
+
+*Claim 6:* If $A\cap B = A$, then $A\cup B = B$
+
+**Exercise 3.1.6** Prove Proposition 3.1.28. (Sets form a boolean algebra). Let $A$, $B$, $C$ be sets,
+and let $X$ be a set containing $A$, $B$, $C$ as subsets.
+
+*Claim (a):* (Minimal element) We have $A \cup \emptyset = A$ and $A \cap \emptyset = \emptyset$.
+
+*Proof:* For $A \cup \emptyset = A$, we have to show that any object $x\in A$ is also in $A \cup \emptyset$ and vice versa. Let $x$ be any arbitrary object in $A$. Then by Axiom 3.4 (Pairwise Union), $x\in A\cup \emptyset$. Likewise if $x\in A\cup \emptyset$, thhen $x\in A$ or $x\in \emptyset$. However, for all $x$, $x\notin \emptyset$ so therefore, $x\in A$. Since $x\in A$ implies $x\in A\cup \emptyset$ and vice versa, $A\cup \emptyset = A$ 
+
+For $A \cap \emptyset = \emptyset$. Let $x\in A \cap \emptyset$, then by Definition 3.1.23, $x\in A$ and $x\in \emptyset$. However, $x\notin\emptyset$ for all $x$ so the statements $x\in A \cap \emptyset \implies x\in\emptyset$ is vacuously true. Likewise, the statement $x\in \emptyset \implies x\in A\cap \emptyset$ is vacuously true. So $A\cap\emptyset = \emptyset$.
+
+*Claim (b):* (Maximal element) We have $A \cup X = X$and $A \cap X = A$.
+
+*Proof:* Let $m\in A\cup X$. Then either $m\in A$ or $m\in X$. If $m\in A$, then $m\in X$ since $A\subseteq X$.\ so in both cases, $m\in X$. Likewise, let $n\in X$, then $n\in A\cup X$. So $A \cup X = X$.
+
+For $A \cap X = A$, let $y\in A\cap X$. Then $y\in A$. Likewise, if $y\in A$, then $y\in X$ since $A\subseteq X$ so $y\in A\cap X$. Therefore, $A \cap X = A$.
+
+*Claim (c):* (Identity) We have $A \cap A = A$ and $A \cup A = A$.
+
+*Proof:* Let $x\in A\cap A$, then $x\in A$. Likewise, if $x\in A$, then $x\in A\cap A$ so $A\cap A = A$. 
+
+For $A \cup A = A$, let $y\in A\cup A$, then $y\in A$ and if $y\in A$, then $y\in A\cup A$ so $A \cup A = A$.
+
+*Proof2: * Since $A\subseteq A$, using principle of maximal element (i.e, taking $X$ to be $A$), then $A\cap X = A$ implies $A\cap A = A$ and $A\cup X = X$ implies $A\cup A = A$.
+
+*Claim (d):* (Commutativity) We have $A \cup B = B \cup A$ and $A \cap B = B \cap A$
+
+*Proof:* For $A \cup B = B \cup A$, see Exercise 3.1.3. 
+
+*Claim (e):* (Associativity) We have $(A\cup B)\cup C = A\cup(B\cup C)$ and $(A\cap B)\cap C = A \cap (B \cap C)$.
