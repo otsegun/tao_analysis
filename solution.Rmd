@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+# Chapter 2
 
 **Pg 24** Prove that the sum of two natural numbers is again a natural number?
 
@@ -212,6 +213,7 @@ $$n{++} = mq + q = (m{++})q = (m{++})q + 0.$$
 Taking $a = m{++}$, $b = 0$, $q = k$ completes the proof. $\square$
 
 # Chapter 3
+
 **Exercise 3.1.1.** Show that the definition of equality in Definition 3.1.4 is reflexive, symmetric, and transitive.
 
 **Reflexive:** We need to show that for an arbitrary set $A$, $A = A$.
@@ -220,7 +222,7 @@ Taking $a = m{++}$, $b = 0$, $q = k$ completes the proof. $\square$
 
 **Symmetric:** Given two sets $A$ and $B$. If $A = B$, $B = A$.
 
-*Proof:* Let $A$ and $B$ be arbitrary sets such that $A = B$. Then all the elements of $A$ are in $B$ and all the elements of $B$ are in $B$. So $B = A$ for the same reasons by **Definition 3.1.4**(Equality of Sets). Thus, equality of sets is symmetric.
+*Proof:* Let $A$ and $B$ be arbitrary sets such that $A = B$. Then all the elements of $A$ are in $B$ and all the elements of $B$ are in $A$. So $B = A$ for the same reasons by **Definition 3.1.4**(Equality of Sets). Thus, equality of sets is symmetric.
 
 **Transitive:** Given 3 sets $A$, $B$ and $C$. If $A = B$ and $B = C$, then $A = C$.
 
@@ -306,3 +308,191 @@ For $A \cup A = A$, let $y\in A\cup A$, then $y\in A$ and if $y\in A$, then $y\i
 *Proof:* For $A \cup B = B \cup A$, see Exercise 3.1.3. 
 
 *Claim (e):* (Associativity) We have $(A\cup B)\cup C = A\cup(B\cup C)$ and $(A\cap B)\cap C = A \cap (B \cap C)$.
+*Proof:* For $(A\cup B)\cup C = A\cup(B\cup C)$, see Lemma 3.1.13. For $(A\cap B)\cap C = A \cap (B \cap C)$, let $x\in (A\cap B)\cap C$. Then $x\in A\cap B$ and $x\in C$. Now $x\in A\cap B$ implies $x\in A$ and $x\in B$. Since $x\in B$ and $x\in C$, then $x\in B\cap C$. Furthermore, since $x\in A$, then $x\in A \cap (B \cap C)$ so therefore, $x \in (A\cap B)\cap C \implies x\in A\cap (B\cap C)$.  Following similar argument, we have that $y\in  A \cap (B \cap C) \implies y\in (A\cap B)\cap C$.
+
+*Claim (f):* (Distributivity) We have $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$ and $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+
+*Proof:* For $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$. Let $x\in A \cap (B \cup C)$. Then $x\in A$ and $x\in B\cup C$. $x\in B\cup C$ implies that $x\in B$ or $x\in C$. If $x\in B$, then $x\in A\cap B$ and so $x\in A \cap B) \cup (A \cap C)$. On the other hand, if $x\in C$, then $x\in A\cap C$ so $x\in A \cap B) \cup (A \cap C)$. In both cases, $x\in A \cap (B \cup C) \implies x\in (A \cap B) \cup (A \cap C)$.
+
+Likewise, let $y\in (A \cap B) \cup (A \cap C)$, then either $y \in (A\cap B) \text{ or } y\in A\cap C$ so we split into cases. If $y\in (A\cap B)$, then $y\in A$ and $y\in B$. Now $y\in B$ implies $y\in B\cup C$ and since $y\in A$, then $y\in A\cap(B\cup C)$. On the other hand, if $y\in A \cap C$, then $y\in A$ and $y\in C$. $y\in C \implies y\in B\cup C$ and since $y\in A$, then $y\in A\cap(B\cup C)$. So in both cases $y\in (A \cap B) \cup (A \cap C) \implies y\in A \cap (B \cup C)$.
+
+Since any arbitrary object in $A \cap (B \cup C)$ is also in $(A \cap B) \cup (A \cap C)$ and vice versa, then $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+
+The second claim $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$ can also be proven following similar lines of arguments as the one above.....
+
+
+*Claim (g):* (Partition) We have $A \cup (X\setminus A) = X \text{ and } A \cap (X\setminus A) = \emptyset$
+
+*Proof:* For $A \cup (X\setminus A) = X$. Let $x\in A \cup (X\setminus A)$, then either $x\in A$ or $x\in X\setminus A$ so we split into cases. If $x\in A$, then $x\in X$ since $A\subseteq X$. On the other hand, if $x\in X\setminus A$, then $x$ is such that $x\in X$ and $x\notin A$ in which case $x\in X$. So for both cases, $x\in A\cup(X\setminus A) \implies x\in X$. 
+
+Now we have to show that $x\in X \implies x\in A\cup(X\setminus A)$. Let $x$ be any arbitrary object in $X$, since $A\subseteq X$, either $x\in A$ or $x\notin A$. So we split into cases. If $x\in A$, then $x\in A\cup(X\setminus A)$. On the other hand, if $x\notin A$, then $x\in X\setminus A$ and so $x\in A \cup (X\setminus A)$. So in both cases, $x\in X \implies x\in A\cup(X\setminus A)$.
+
+Since all the elements of $X$ are in $A\cup(X\setminus A)$ and vice versa, then $A \cup (X\setminus A) = X$. $\square$. 
+
+For the claim $A \cap (X\setminus A) = \emptyset$. Suppose for the case of contradiction that there exists an object $x$ such that $x\in A \cap (X\setminus A)$. Then, $x\in A$ and $x\in X\setminus A$. However, $x\in X\setminus A$ implies $x\in A$ which is a contradiction. So for all objects $x$, $x\notin A\cap(X\setminus A)$. Also by Axiom 3.2 (Empty set), we have $x\notin \emptyset$ for all $x$. Thus, $x\in A\cap(X\setminus A) \iff x\in \emptyset$ and so $A \cap (X\setminus A) = \emptyset$. $\square$
+
+*Claim (h):* De Morgan laws) We have $X\setminus(A \cup B) = (X\setminus A) \cap (X\setminus B)$ and
+$X\setminus(A \cap B) = (X\setminus A) \cup (X\setminus B)$.
+
+*Proof:* For the claim $X\setminus(A \cup B) = (X\setminus A) \cap (X\setminus B)$. Let $x\in X\setminus(A \cup B)$, then $x\in X$ and $x\notin A\cup B$ i.e $x\notin A$ and $x\notin B$. Therefore, $x\in X\setminus A$ and $x\in X\setminus B$ (because $x \in X$, $x\notin A$ and $x\notin B$) and consequently, $x\in (X\setminus A) \cap (X\setminus B)$. So $x\in X\setminus(A \cup B) \implies  (X\setminus A) \cap (X\setminus B)$. 
+
+Now we have to show that $y\in (X\setminus A) \cap (X\setminus B) \implies y\in X\setminus(A \cup B)$. Let $y$ be any arbitrary object in $(X\setminus A) \cap (X\setminus B)$. Then $y \in (X\setminus A)$ and $y\in ( X\setminus B)$ so $y\notin A$ and $y\notin B$ and consequently, $y\notin A\cup B$ (because $y\notin A\cup B \iff y\notin A$ and $y\notin B$). Since $y\in X$ and $y\notin A\cup B$, then $y\in X\setminus (A\cup B)$. So $y\in (X\setminus A) \cap (X\setminus B) \implies y\in X\setminus(A \cup B)$. 
+
+Since any arbitrary element of $X\setminus(A \cup B)$ is in $(X\setminus A) \cap (X\setminus B)$ and vice versa, then $X\setminus(A \cup B) = (X\setminus A) \cap (X\setminus B)$. $\square$ 
+
+For the claim $X\setminus(A \cap B) = (X\setminus A) \cup (X\setminus B)$. Let $x\in  X\setminus(A \cap B)$. Then $x\in X$ and $x\notin A\cap B$ i.e $x\notin A$ or $x\notin B$ sp we split into cases.  If $x\notin A$, then $x\in X\setminus A$ and consequently, $x\in (X\setminus A) \cup (X\setminus B)$. On the other hand, if $x\notin B$, then $x\in X\setminus B$ so $x\in (X\setminus A) \cup (X\setminus B)$ again. So in both cases, $x\in X\setminus(A \cap B) \implies x\in (X\setminus A) \cup (X\setminus B)$.
+
+Now we show that $y\in (X\setminus A) \cup (X\setminus B) \implies y\in X\setminus(A \cap B)$. Let $y$ be an arbitrary object in $(X\setminus A) \cup (X\setminus B)$. Then $y\in (X\setminus A)$ or $y\in (X\setminus B)$ so we split into cases. If $y\in (X\setminus A)$, then $y\in X$ and $y\notin A$. Since $y\notin A$, then $y\notin A\cap B$ so $y \in X\setminus (A\cap B)$. On the other hand if $y\in (X\setminus B)$, then $y\in X$, $y\notin B$ so $y\notin A\cap B$ and consequently, $y\in X\setminus (A\cap B)$. So in both cases, $y\in (X\setminus A) \cup (X\setminus B) \implies y\in X\setminus(A \cap B)$.
+
+Since all the elements of $X\setminus(A \cap B)$ are in $(X\setminus A) \cup (X\setminus B)$ and vice versa, then $X\setminus(A \cap B) = (X\setminus A) \cup (X\setminus B)$. $\square$
+
+**Exercise 3.1.7** Let $A$, $B$, $C$ be sets. Show that $A \cap B \subseteq A$ and $A \cap B \subseteq B$. Furthermore, show that $C\subseteq A$ and $C \subseteq B$ if and only if $C \subseteq A \cap B$. In a similar spirit, show that $A \subseteq A \cup B$ and $B \subseteq A \cup B$, and furthermore that  $A \subseteq C$ and $B \subseteq C$ if and only if $A \cup B \subseteq C$.
+
+*Claim (1):* Show that $A\cap B\subseteq A$.
+
+*Proof:* We want to show that any $x\in A\cap B$ is also in $A$, i.e  $x\in A\cap B \implies x\in A$. Let $x \in A\cap B$, then $x\in A$ and $x\in B$. Thus, every element of $A\cap B$ is also in $A$.
+
+*Claim (2):* Show that $A\cap B\subseteq B$.
+
+*Proof:* Following the same argumne t above, we see that every element of $A\cap B$ is also in $B$.
+
+*Claim (3):* Show that $C \subseteq A$ and $C\subseteq B$ iff $C\subseteq A\cap B$.
+
+*Proof:* First we show that $C \subseteq A, \ C\subseteq B\implies C\subseteq A\cap B$. Take any arbitrary $x\in C$. Then $x\in A$ and $x\in B$ and consequently, $x\in A\cap B$ so any arbitrary element of $C$ is also in $A\cap B$. Now we show the reverse implication, i.e $C\subseteq A\cap B \implies C \subseteq A, \ C\subseteq B$. Pick any arbitrary element in $C$, since $C\subseteq A\cap B$, $x\in A\cap B$ and consequently, $X\in A$ and $x\in B$. So any arbitrary element in $C$, $x\in C$, is also an element of $A$ and $B$.
+
+*The other claims can be shown easily following similar arguments to the ones above*
+
+**Exercise 3.1.8** Let $A,\ B$ be sets. Prove the absorption laws $A \cap (A \cup B) = A$ and $A \cup (A \cap B) = A$.
+
+*Claim (1):* $A \cap (A \cup B) = A$
+
+*Proof:* Let $x$ be an arbitrary element in $A \cap (A \cup B)$. Then $x\in A$ and $x\in (A\cup B)$. So $x\in A \cap (A \cup B) \implies x\in A$. Furthermore, let $y\in A$, then $y\in A\cup B$. Since $y\in A$, and $y\in A\cup B$, then $y\in A\cap (A\cup B)$ so $y\in A \implies A \cap (A \cup B)$. Consequently, $A \cap (A \cup B) = A$. 
+
+*Claim (2):* $A \cup (A \cap B) = A$
+
+*Proof:* Let $x$ be an arbitrary element in $A$, then $x\in A \cup (A \cap B)$ so $x\in A \implies x\in x\in A \cup (A \cap B)$. Likewise, let $y\in A\cup(A\cap B)$. Either $y\in A$ or $y\in A\cap B$. If $y\in A$, then $y\in A\cup(A\cap B) \implies y\in A$. On the other hand, if $y\in A\cap B$, then $y\in A$ and $y\in B$ so $y\in A\cup(A\cap B) \implies y\in A$ too. Since $x\in A \implies x\in x\in A \cup (A \cap B)$ and $y\in A\cup(A\cap B) \implies y\in A$, $A \cup (A \cap B) = A$.   
+
+**Exercise 3.1.9** Let $A,\ B,\ X$ be sets such that $A \cup B = X$ and $A \cap B = \emptyset$. Show that $A = X\setminus B$ and $B = X\setminus A$.
+
+*Claim (1):* $A = X\setminus B$
+
+*Proof:* Let $x\in A$, then $x\in A\cup B$ and $x\in A$. Since $x\in A$ and $A\cap B = \emptyset$, then $x\notin B$. Since $x\in X$ and $x\notin B$, then $x\in X\setminus B$. Likewise let $y\in x\setminus B$, then $y\in X$ and $y\notin B$. Since $A\cup B = X$, then $y\in A\cup B$. But $y\in A\cup B \implies y\in A \text{ or } y\in B$. But we know already that $y\notin B$ so $y\in A$. Since $x\in A \implies x\in X\setminus B$ and $y\in X\setminus B \implies y\in A$, $A = X\setminus B$
+
+
+*Claim (2): can be shown following the same argument*.
+
+**Exercise 3.1.10** Let $A$ and $B$ be sets. Show that the three sets $A\setminus B$, $A \cap B$, and $B\setminus A$ are disjoint, and that their union is $A \cup B$. 
+
+*Claim (1):* $(A\setminus B) \cap (A\cap B) \cap (B\setminus A) = \emptyset$.
+
+*Proof:* Suppose for the sake of contradiction that $(A\setminus B) \cap (A\cap B) \cap (B\setminus A)$ is not empty. Then by **Lemma 3.1.6**, there exist an object $x$ such that $x\in (A\setminus B) \cap (A\cap B) \cap (B\setminus A)$. Then $x\in (A\setminus B)$ and that implies $x\in A$ and $x\notin B$. However, $x\in (A\setminus B) \cap (A\cap B) \cap (B\setminus A)$ also implies that $x\in A\cap B$ which in turn implies that $x\in B$. So we have $x\in B$ and $x\notin B$ which is a contradiction. So therefore, there is no $x$ such that $x\in (A\setminus B) \cap (A\cap B) \cap (B\setminus A)$ and that means $(A\setminus B) \cap (A\cap B) \cap (B\setminus A) = \emptyset$.  
+
+*Claim(2):* $(A\setminus B) \cup (A\cap B) \cup (B\setminus A) = A\cup B$
+
+*Proof:* Let $x\in (A\setminus B) \cup (A\cap B) \cup (B\setminus A)$. Then $x$ is an element of either of the three sets so we break into cases. If $x\in A\setminus B$, then $x\in A$ and $x\notin B$ so $x\in A\cup B$. Likewise, if $x\in A\cap B$, then $x\in A\cup B$. On the other hand, if $x\in B\setminus A$, then $x\in B$ and $x\in A\cup B$. So for all three possible cases,  $x\in (A\setminus B) \cup (A\cap B) \cup (B\setminus A)\implies x\in A\cup B$. Now have have to show that $x\in A\cup B \implies x\in (A\setminus B) \cup (A\cap B) \cup (B\setminus A)$. Let $y\in A\cup B$, then either $y\in A$ or $y\in B$ so we break into cases. For the first case, if $y\in A$, then either $y\in B$ or $y\notin B$. If $y\in B$, then $y\in A\cap B$ so $y\in (A\setminus B) \cup (A\cap B) \cup (B\setminus A)$. On the other hand, if $y\notin B$, then $y\in A\setminus B$ so $y\in (A\setminus B) \cup (A\cap B) \cup (B\setminus A)$ also. For the second case, we can follow the same argument to arrive at $y\in (A\setminus B) \cup (A\cap B) \cup (B\setminus A)$ again. Since, $x\in (A\setminus B) \cup (A\cap B) \cup (B\setminus A)\implies x\in A\cup B$ and $x\in A\cup B \implies x\in (A\setminus B) \cup (A\cap B) \cup (B\setminus A)$,
+$(A\setminus B) \cup (A\cap B) \cup (B\setminus A) = A\cup B$.
+
+**Exercise 3.1.11** Show that the axiom of replacement implies the axiom of
+specification. 
+
+*Proof* Let $A$ be a set and suppose we have a property $P$ for each $x \in A$, so we want to show $\{x \in A : P(x)\}$ exists using the axiom of replacement. For each object $x\in A$, define the property $Q(x, y)$ to be that $y = x$ and $P(x)$ is true. Then by the axiom of replacement, the set $\{y:Q(x,y)\ is\ true \ for\ some\ x\in A\}$ exists. Now let $z\in \{y:Q(x,y)\ is\ true \ for\ some\ x\in A\}$, then $Q(x,z)$ is true and by definition of $Q$, we have that $z = x$, $z\in A$ and $P(z)$ is true which leads to the set we're looking to define in the axiom of specification. i.e 
+
+$z\in \{y:Q(x,y)\ is\ true \ for\ some\ x\in A\} \implies z\in \{x \in A : P(x)\}$
+
+## 3.2
+
+**Exercise 3.2.1**
+
+**Exercise 3.2.2**
+
+**Exercise 3.2.3**
+
+
+## 3.3
+
+**Exercise 3.3.1** Show that the definition of equality in Definition 3.3.7 is reflexive, symmetric, and transitive. Also verify the substitution property: if $f, \tilde{f}: X \mapsto Y$ and $g, \tilde{g}: Y\mapsto Z$ are functions such that $f = \tilde{f}$ and $g = \tilde{g}$, then $g \circ f = \tilde{g} \circ \tilde{f}$. 
+
+*Reflexive axiom:*  Given any object $x$, we have $x = x$.
+
+*Proof:* Let $f: X \mapsto Y$ be a function.  Clearly the domain and range of $f$ does not change in this case and $f(x) = f(x)\ \forall x\in X$ so therefore, therefore $f = f$ and the definition of equality in Definition 3.3.7 is reflexive. $\square$
+
+*Symmetric axiom:* Given any two objects $x$ and $y$ of the same type, if $x = y$, then $y = x$.
+
+*Proof:* Let $f:X\mapsto Y$ and $g:X\mapsto Y$ be two functions with the same domain and range such that $f = g$. Then by Definition 3.3.7, $f(x) = g(x) \ \ \forall\ x\in X$. We have to show that $g = f$. Since $g$ and $f$ have the same domain and range, we just need to show that $g(x) = f(x) \ \forall x\in X$. However, $f(x) = g(x)\ \forall x\in X$ so $g(x) = f(x)\ \forall x\in X$. Consequently, $g = f$ and Definition 3.3.7 obeys the symmetric axiom. $\square$
+
+*Transitivity axiom:* Given any three object $x$, $y$ and $z$ of the same type, if $x = y$ and $y = z$, then $x = z$.
+
+*Proof:* Let $f,g,h$ be functions with domain $X$ and range $Y$ such that $f = g$ and $g =h$. We want to show that $f = h$. By Definition 3.3.7, $f = g \implies f(x) = g(x) \ \forall x\in X$ and $g = h \implies g(x) = h(x) \ \forall x\in X$. So we have that $f(x) = g(x) = h(x) \ \forall x\in X$. So $f(x) = h(x) \ \forall x\in X$ and so $f = h$. $\square$
+
+
+*Substitution axiom:* Given any two object $x$ and $y$ of the same type, if $x = y$, then $f(x) = f(y)$ for all functions or operations $f$.
+
+*Substitution property for functions:* If $f, \tilde{f}: X\mapsto Y$ and $g, \tilde{g}: Y\mapsto Z$ are functions such that $f = \tilde{f}$ and $g = \tilde{g}$. Then $g\circ f = \tilde{g} \circ \tilde{f}$.
+
+*Proof:* By Defintion 3.3.10, $g\circ f = g(f(x))$. However, $f = \tilde{f}$ implies that $f(x) = \tilde{f}(x) \ \forall x\in X$ so $g\circ f = g(f(x)) = g(\tilde{f}(x))$. Likewise, $g = \tilde{g}$ so $g\circ f = g(f(x)) = \tilde{g}(\tilde{f}(x)) =  \tilde{g} \circ \tilde{f}$ by Defintion 3.3.10. $\square$
+
+
+**Exercise 3.3.2** Let $f: X \mapsto Y$ and $g:Y\mapsto Z$ be functions. Show that if $f$
+and $g$ are both injective, then so is $g \circ f$ ; similarly, show that if $f$ and $g$ are both surjective, then so is $g \circ f$.
+
+*Claim (1):* Show that if $f$ and $g$ are both injective, then so is $g \circ f$.
+
+*Proof (a):* Let $x, x' \in X$ such that $x \ne x'$. We have to show that $g\circ f(x) \ne g\circ f(x')$. Since $f$ in injective and $x \ne x'$, then $f(x) \ne f(x')$. Furthermore, since $g$ is injective, $g(f(x)) \ne g(f(x'))$ (because $f(x) \ne f(x')$). So $g\circ f(x) \ne g\circ f(x')$ and that completes the proof. $\square$ 
+
+
+
+*Claim (2):* Show that if $f$ and $g$ are both surjective, then so is $g \circ f$.
+
+*Proof:* Since $g$ is surjective, for all $z\in Z$, there exists $y\in Y$ such that $g(y) = Z$. However, $f$ is also surjective so for all $y\in Y$, there exists $x\in X$ such that $f(x) = y$. So for all $z\in Z$, there exists $y\in Y$ and for all such $y$, there exists $x\in X$ such that $g(f(x)) = z$. So therefore, $g\circ f$ is also surjective. $\square$ 
+
+**Exercise 3.3.3** Exercise 3.3.3. When is the empty function injective? surjective? bijective?
+
+The empty function is injective for any range (vacuously true). Surjective when the range is empty and bijective when the range is empty. $\square$ 
+
+**Exercise 3.3.4** Let $f : X \mapsto Y$ , $\tilde{f} : X \mapsto Y$ , $g:Y\mapsto Z$, and $\tilde{g}:Y\mapsto Z$ be functions. Show that if $g \circ f = g \circ \tilde{f}$  and $g$ is injective, then $f = \tilde{f}$. Is the same statement true if $g$ is not injective? Show that if $g \circ f = \tilde{g} \circ f$ and $f$ is surjective, then $g = \tilde{g}$.  Is the same statement true if $f$ is not surjective? 
+
+*Proof:* Since $g \circ f = g \circ \tilde{f}$, then $g(f(x)) = g(\tilde{f}(x))$. Add in the fact that $g$ is injective, then $f(x) = \tilde{f}(x)$. Since $f$ and  $\tilde{f}$ have the same domain and range and $f(x) = \tilde{f}(x)\ \forall x \in X$, then $f = \tilde{f}$. The statement wouldn't be true if $g$ wasn't injective because we can't guarantee that the inputs of $g$ are the same if its outputs are equal, i.e, we can't be sure that  $f(x) = \tilde{f}(x)$. 
+
+Likewise, since $g \circ f = \tilde{g} \circ f$ and $f$ is surjective, then all $y \in Y$ are produced by applying $f$ to some $x\in X$, so therefore $g(f(x)) = \tilde{g}(f(x))$ implies that $g(y) = \tilde{g}(y)$ for all $y\in Y$, and so $g = \tilde{g}$ since they have the same domain and range. The statement wouldn't be true if $f$ is not surjective, because then  there exists $y\in Y$ such that $y \neq f(x)$. Consequently we can't guarantee that $g(f(x)) = \tilde{g}(f(x))$ implies $g(y) = \tilde{g}(y)$ because there are some $y$ (inputs of $g$) which are not images of $f$ and our assumption of equality of composition (that $g(f(x)) = \tilde{g}(f(x))$) only works on images of $f$. $\square$ 
+
+**Exercise 3.3.5** Let $f : X \mapsto Y$ and $g : Y \mapsto Z$ be functions. Show that if $g \circ f$
+is injective, then $f$ must be injective. Is it true that $g$ must also be injective? Show that if $g \circ f$ is surjective, then $g$ must be surjective. Is it true that $f$ must also be surjective?
+
+*Claim (1):* Show that if $g \circ f$ is injective, then $f$ must be injective. Is it true that $g$ must also be injective?
+
+*Proof:*  Let $x, \ x' \in X$ such that $f(x) = f(x')$. We have to show that $x = x'$. Since $f(x) = f(x')$, then $g(f(x)) = g(f(x'))$ (since $g$ is a function). Now $g(f(x)) = g(f(x'))$ implies $(g\circ f) (x)= (g\circ f)(x')$ and since $(g\circ f)$ is injective, then $x = x'$. Since $f(x) = f(x')$ implies that $x = x'$, then $f$ is injective and $g$ doesn't have to be injective.
+
+*Claim (2):* Show that if $g \circ f$ is surjective, then $g$ must be surjective. Is it true that $f$ must also be surjective?
+
+*Proof:*  Let $z$ be any arbitrary element in $Z$. We need to find an element $y \in Y$ such that $z=g(y)$. Now, $g\circ f$ surjective means that for $z$, there exists a $x\in X$ such that $z = g(f(x))$. Take $y := f(x)$, then we have a $y\in Y$  such that $z = g(y)$. 
+So for any arbitrary element  $z$ taken in $Z$, we can find a corresponding $y\in Y$ such that $z = g(y)$, and that means $g$ is surjective and $f$ need not be be surjective. $\square$   
+
+
+**Exercise 3.3.6.** Let $f:X\mapsto Y$ be a bijective function, and let $f^{-1}:Y\mapsto X$ be its inverse. Verify the cancellation laws $f^{-1}(f(x)) = x$ for all $x \in X$ and $f(f^{-1}(y)) = y$ for all $y \in Y$. Conclude that $f^{-1}$ is also invertible, and has $f$ as its inverse (thus $(f^{-1} )^{-1} = f$).
+
+*Proof:* Let $y$ be any abitrary element in $Y$, then there exists exactly one $x$ such that $y=f(x)$. But that $x = f^{-1}(y)$ (by definition of inverse function) so that $y = f(f^{-1}(y))$ and $x = f^{-1}(f(x))$. 
+
+Next we show that $f^{-1}$ is invertible i.e we need to show that $f^{-1}$ is injective and surjective. Let $y, \ y' \in Y$ such that $f^{-1}(y) = f^{-1}(y')$, we want to show that $y = y'$ for the injective property. Since $f^{-1}(y) = f^{-1}(y')$, then $f(f^{-1}(y)) = f(f^{-1}(y'))$ and using the cancellation law $y = f(f^{-1}(y))$, then $y = y'$ so $f^{-1}$ is injective. To show the surjective properperty,  let $x \in X$, we need to show that $\exists\ y \in Y$ such that $x = f^{-1}(y)$. Take $y:=f(x)$ so that $x=f^{-1}(f(x))$. So $f^{-1}$ is surjective.
+
+Finally, we need to show that $f$ is the inverse of $f^{-1}$. Let $g$ be the inverse of $f^{-1}$. Then we want to show that $g(x) = f(x)$ for all $x \in X$. Fix an arbitrary element $x\in X$, by the definition of inverse function, there is exactly one $y \in Y$ such that for the fixed $x$, $x = f^{-1}(y)$ and this value of $y$ is $g(x)$, i.e $y = g(x)$. Using the cancellation law $y = f(f^{-1}(y))$, we have that $f(f^{-1}(y)) = g(x)$. But $x = f^{-1}(y)$ so $f(x) = g(x)$. Consequently, for any $x\in X$, we have that $f(x) = g(x)$ so $f$ is the inverse of $f^{-1}$. $\square$            
+
+**Exercise 3.3.7**
+
+**Exercise 3.3.8**
+
+## 3.4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
